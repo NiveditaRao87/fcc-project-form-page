@@ -82,13 +82,10 @@ showProgress = () => {
     
     let progressArray = progressText.textContent.split("of")
 
-    progressArray[0] = progressArray[0].slice(0,progressArray[0].length - 1 -((total-1)+"").length) + `${total} of`
+    progressArray[0] = `${total} of`
 
     progressText.textContent = progressArray.join("")
      
-    
-     
-    
 }
 
 redirect = (event) => {
