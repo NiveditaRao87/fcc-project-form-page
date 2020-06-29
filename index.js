@@ -6,7 +6,7 @@ function addBr(type) {
     let inputs = document.querySelectorAll(`input[type=${type}]`)    
     for(let input of inputs) {
         //  Declaring this outside the for loop creates only one br element which then gets shifted around 
-    //    at each iteration. Wasted 1 hour on this. 
+        //    at each iteration. Wasted 1 hour on this. 
         let br = document.createElement("br")
         let id = input.id
         let label = document.querySelector(`label[for=${id}]`)
@@ -18,7 +18,6 @@ function addBr(type) {
     
 }
 // show other linked input textbox only when other is selected
-// dirty dirty code think of a better way! add checked or not checked check for checkbox
 toggleOther = (event,checked) => {
    const {name,value,type} = event.target
    
@@ -30,7 +29,7 @@ toggleOther = (event,checked) => {
 }
 
 setEffects = (check) => {
-   
+   // Check or uncheck all effect boxes based if all of the above or none of the above is checked
     for(let effect of document.querySelectorAll("input[name='effect']")){
         if(effect.value === "none"){
             continue
@@ -48,13 +47,14 @@ showProgress = () => {
         textAreas: 0
     }
     for(let input of document.querySelectorAll("input")){
-   //At least one radio button in each category
+        //At least one radio button in each category
         input.type === "radio" ? input.checked && !filledInputs.radios.includes(input.name) && filledInputs.radios.push(input.name)
- // At least one checkbox in each category, if other is selected then the corressponding text field
-        :input.type === "checkbox" ? (input.value.startsWith("other") && document.querySelector(`#${input.value}`).value !== "") || !input.value.startsWith("other") && 
-   input.checked && !filledInputs.checkboxes.includes(input.name) && filledInputs.checkboxes.push(input.name)  
-  // All input fields that are not other apart from checkbox and radio
-   : input.validity.valid  && !input.id.startsWith("other") && input.value !== "" && filledInputs.otherInputs++
+        // At least one checkbox in each category or if other is selected then the corressponding text field
+        :input.type === "checkbox" ? (input.value.startsWith("other") && 
+        document.querySelector(`#${input.value}`).value !== "") || !input.value.startsWith("other") && 
+        input.checked && !filledInputs.checkboxes.includes(input.name) && filledInputs.checkboxes.push(input.name)  
+        // All input fields that are not other apart from checkbox and radio
+        : input.validity.valid  && !input.id.startsWith("other") && input.value !== "" && filledInputs.otherInputs++
    }
 // Check to see if select is filled and if other is chosen , correspnding text box is filled
     let select = document.querySelector("#dropdown")
@@ -66,8 +66,6 @@ showProgress = () => {
 
     document.querySelector("textarea").value !== "" && filledInputs.textAreas++
 
-    console.log(filledInputs);
-
     let total = 0
     for(let value of Object.values(filledInputs)){
         Array.isArray(value) ? total += value.length : total += value
@@ -78,7 +76,6 @@ showProgress = () => {
     progress.value = total
     
     let progressText = progress.closest("div").lastElementChild
-    console.log(progressText.textContent);
     
     let progressArray = progressText.textContent.split("of")
 
@@ -90,6 +87,8 @@ showProgress = () => {
 
 redirect = (event) => {
     event.preventDefault() 
+    // Clear form before redirecting 
+    event.target.reset()
     window.location = "submitted.html"
 
 }
@@ -111,10 +110,18 @@ let reason = document.querySelector("#reason")
 //reason.addEventListener("change",(event) => toggleOther(reason.id,event.target.value))
 reason.addEventListener("change",(event) => toggleOther(event,reason.checked))
 
-//Validation: if all of the above is checked make all the checkboxes checked and if none of the above
+//Validation: if all of the above is checked, make all the checkboxes checked and if none of the above
 //is checked uncheck all
 document.querySelector("#none").addEventListener("change",() => {event.target.checked && setEffects(false)})
 document.querySelector("#all").addEventListener("change",() => {event.target.checked && setEffects(true)})
+for (effect of document.querySelectorAll('input[name="effect"]'))
+{
+    effect.addEventListener("change",() => {
+    if(event.target.checked && event.target.id !== "none") {
+        document.querySelector("#none").checked = false
+    }
+})
+}
 
 document.addEventListener("input",showProgress)
 
