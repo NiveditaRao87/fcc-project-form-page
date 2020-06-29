@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Environmental Awareness Survey Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="title">Environmental awareness and veganism survey form</h1>
+        <p id="description">Thank you for taking the time to fill this form.</p>
+    </header>
+    <main>
+        <form id="survey-form">
+            <p class="instruction">* = Required field</p>
+            
+            <label for="name" id="name-label" class="required">Name</label>
+            <input type="text" id="name" placeholder="Your name" required>
+            <br>
+            <label for="email" id="email-label" class="required">Email</label>
+            <input type="email"id="email" placeholder="Your email" required>
+            <br>
+            <label for="number" id="number-label" class="required">Age(optional)</label>
+            <input type="number" id="number" min="10" max="120" placeholder="Age">
+            <br>
+            <label for="diet">How would you describe your diet?</label>
+            <select name="diet" id="dropdown">
+                <option value="select" selected disabled>Select your diet</option>
+                <option value="vegan">Vegan</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="meateater">Meat-eater</option>
+                <option value="meatreducer">Ocassional meat-eater</option>
+                <option value="pescetarian">Pescetarian</option>
+<!-- Name of the other option and id of other-diet textbox are linked -->
+                <option value="other-diet">Other(please specify)</option>
+            </select>
+            <input type="text" id="other-diet" placeholder="Describe your diet here">
+            <fieldset>
+                <legend>What according to you is the severity of the impact of meat and dairy consumption on the environment?</legend>
+                <input type="radio" id="impact1" name="impact" value="negligible">
+                <label for="impact1">Negligible</label>
+                <input type="radio" id="impact2" name="impact" value="bad">
+                <label for="impact2">Bad</label>
+                <input type="radio" id="impact3" name="impact" value="verybad">
+                <label for="impact3">Very bad</label>
+                <input type="radio" id="impact4" name="impact" value="devastating">
+                <label for="impact4">Devastating</label>
+            </fieldset>
+            <fieldset>
+                <legend>In what ways do you think meat and dairy consumption affects the environment?</legend>
+                <input type="checkbox" name="effect" id="greenhouse" value="greenhouse">
+                <label for="greenhouse">Climate change emissions</label>
+                <input type="checkbox" name="effect" id="land" value="land">
+                <label for="land">Land use</label>
+                <input type="checkbox" name="effect" id="water" value="water">
+                <label for="water">Water pollution and ocean acidification</label>
+                <input type="checkbox" name="effect" id="air" value="air">
+                <label for="air">Air pollution</label>
+                <input type="checkbox" name="effect" id="withdrawls" value="withdrawls">
+                <label for="withdrawls">Fresh water withdrawls</label>
+                <input type="checkbox" name="effect" id="extinction" value="extinction">
+                <label for="extinction">Mass extinction of wildlife</label>
+                <input type="checkbox" name="effect" id="all" value="all">
+                <label for="all">All of the above</label>
+                <input type="checkbox" name="effect" id="none" value="none">
+                <label for="none">None of the above</label>
+            </fieldset>
+            <fieldset>
+                <legend>How willing are you to change your diet?</legend>
+                <input type="radio" id="consider" name="diet-change" value="consider">
+                <label for="consider">I would consider it.</label>
+                <input type="radio" id="unwilling" name="diet-change" value="unwilling">
+                <label for="unwilling">Not at all.</label>
+                <input type="radio" id="already" name="diet-change" value="already">
+                <label for="already">Already vegan/vegetarian or currently making a switch</label>
+            </fieldset>
+            <fieldset>
+                <legend>What reasons prevent you from changing your diet?</legend>
+                <input type="checkbox" id="uninterested" name="reason" value="uninterested">
+                <label for="uninterested">Disinterest</label>
+                <input type="checkbox" id="lackinfo" name="reason" value="lackinfo">
+                <label for="lackinfo">I wouldn't know what to eat</label>
+                <input type="checkbox" id="health" name="reason" value="health">
+                <label for="health">I don't think I can get enough protein from a meat and dairy free diet</label>
+                <input type="checkbox" id="budget" name="reason" value="budget">
+                <label for="budget">I think a vegan/vegetarian diet is too expensive</label>
+<!-- Name of the other checkbox and id of other-reason textbox are linked -->
+                <input type="checkbox" id="reason" name="reason" value="other-reason">
+                <label for="reason">Other (Please specify)</label>
+                <input type="text" id="other-reason" placeholder="Please specify your reasons here.">
+            </fieldset>
+            <fieldset>
+                <legend>How willing are you to change your lifestyle to reduce the damage you cause the environment</legend>
+                <input type="radio" id="lifestyle-no" name="lifestyle" value="unwilling">
+                <label for="lifestyle-no">Unwilling</label>
+                <input type="radio" id="lifestyle-somewhat" name="lifestyle" value="somewhat">
+                <label for="lifestyle-somewhat">Somewhat willing</label>
+                <input type="radio" id="lifestyle-willing" name="lifestyle" value="willing">
+                <label for="lifestyle-willing">Willing</label>
+                <input type="radio" id="lifestyle-very" name="lifestyle" value="very">
+                <label for="lifestyle-very">Very willing</label>
+                <input type="radio" id="lifestyle-already" name="lifestyle" value="already">
+                <label for="lifestyle-already">I'm already doing everything I can</label>
+            </fieldset>
+            <fieldset>
+                <legend>What lifestyle choices do you make to reduce the damage you do to the environment?</legend>
+                <input type="checkbox" name="choices" id="public" value="public">
+                <label for="public">Use public transport whenever possible</label>
+                <input type="checkbox" name="choices" id="foodwaste" value="foodwaste">
+                <label for="foodwaste">Make sure to not waste food and mostly buy local produce</label>
+                <input type="checkbox" name="choices" id="energy" value="energy">
+                <label for="energy">Consciously reduce my energy consumption and water usage</label>
+                <input type="checkbox" name="choices" id="tours" value="tours">
+                <label for="tours">Cut down on unnecessary long distance tours and travels </label>
+                <input type="checkbox" name="choices" id="recycle" value="recycle">
+                <label for="recycle">Deligently recycle</label>
+                <input type="checkbox" name="choices" id="packaging" value="packaging">
+                <label for="packaging">Try to buy products with eco-friendly packaging</label>
+            </fieldset>
+            <label for="opinion">Opinion on veganism</label>
+            <textarea name="opinion" id="opinion" rows="5" placeholder="Your opinion on veganism"></textarea>
+            <div id="progress-div">
+                <progress id="progress" min="0" max="11" value="0"></progress>
+                <p>0 of 11</p>
+           </div>
+            <div class="wrapper"><button type="submit" id="submit">Submit</button></div>
+        </form>
+    </main>
+    <footer>
+        
+    </footer>
+    <script type="text/javascript" src="index.js">
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+/* CSS learnings from this project #*/
+body {
+    background: url("https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat;
+/* #3 How to keep the background fixed and content scrollable */
+    background-attachment: fixed; 
+    font-size: 1.3rem;
+    color: #f0f6ec;
+}
+
+header {
+    text-align: center;
+    font-family: 'Roboto' , sans-serif;
+   font-size: 2rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+}
+
+form {
+    margin: auto 20vw;
+    background-color: #313d4c;
+   
+    /* font-size: 1.3rem; */
+    font-family: 'Montserrat' , sans-serif;
+    padding: 5vh 3vw;
+}
+#progress-div {
+    margin: 5vh auto 0 auto;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 5vh;
+}
+#progress-div p {
+    margin-top: 0;
+    font-size: 1rem;
+}
+#progress {
+    width: 26vw;
+}
+
+fieldset {
+    border: none;
+    margin: auto 0;
+    padding-left: 0;
+    margin-bottom: 5vh;
+}
+
+select {
+    margin-bottom: 5vh;
+}
+
+/* #1 using css selectors with not */
+input:not([type=checkbox]):not([type=radio]) , select, textarea {
+    font-size: 1.3rem;
+    display: block;
+    margin-top: 0.7rem;
+    border-radius: 10px;
+    border: 1px solid #313d4c;
+    /* padding: 5px auto;  */
+    width: 400px;
+    height: 2rem;
+}
+
+textarea {
+    height: auto;
+    width: 51vw;
+}
+
+.wrapper{
+   text-align: center;
+}
+button {
+    margin: 5vh auto;
+    width: 20vw;
+    font-size: 1.5rem;
+    border-radius: 10px;
+}
+
+/*#2  styles placeholder text and :placeholder-shown selects any element with an active placeholder*/
+::placeholder {
+    padding-left: 5px;
+    font-family: 'Montserrat' , sans-serif;
+}
+
+
+
+/* :input-focus {
+border: none;
+    border: 1px solid blue;
+border-radius: 10px;
+} */
+
+.instruction {
+    font-size: 1rem;
+    text-align: right;
+}
+
+.required:after {
+    content:" *";
+}
+
+/* #4 how to select starting with and ending with $= in CSS selectors */
+/* #5 [id^="other"] - is heirarchially lower than input[] */ 
+#other-diet {
+  display: none;
+  margin-bottom: 5vh;
+}
+#other-reason {
+    display: none;
+}
+
+@media(max-width: 1060px) {
+     form{
+         margin: 0 5vw;
+     }
+     h1 {
+         font-size: 2.5rem;
+     }
+     input:not([type=checkbox]):not([type=radio]) , select, textarea {
+        width: 76vw;
+     }
+}
+
